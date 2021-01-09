@@ -25,3 +25,35 @@ let arrNums = []
 for (let i = 0; i < arrLen; i++) {
     arrNums[i] = randomInteger(0, 100)
 }
+
+function arrCut(arr) {
+    let newArrNum = []
+    if (arr.length != 0) {
+        let lastNum = arr[arr.length - 1]
+        for (let i = 0; i < arr.length - 1; i++) {
+            newArrNum.push(arr[i])
+        }
+        if (newArrNum.length == 1) {
+            console.log("Последнее число:", lastNum)
+        } else {
+            console.log("Последнее число:", lastNum, "осталось", newArrNum)
+            arrCut(newArrNum)
+        }
+    }
+}
+console.log("Изначальный массив:", arrNums)
+arrCut(arrNums)
+
+
+outputConsole("\nЗАДАНИЕ 3")
+
+function isPalindrome(word) {
+    let middle = Math.floor(word.length / 2)
+    for (let i = 0; i < middle; i++) {
+        if (word[i] !== word[word.length - i - 1])
+            return false
+    }
+    return true
+}
+let word = String(prompt("Введите слово:"))
+console.log("Слово палиндром?", isPalindrome(word))
