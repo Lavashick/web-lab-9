@@ -57,3 +57,50 @@ function isPalindrome(word) {
 }
 let word = String(prompt("Введите слово:"))
 console.log("Слово палиндром?", isPalindrome(word))
+
+outputConsole("\nЗАДАНИЕ 4")
+
+let matLen = 3
+let allStr = ""
+let newWord = ""
+let matr = [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0]
+]
+for (let i = 0; i < matLen; i++) {
+    for (let j = 0; j < matLen; j++) {
+        matr[i][j] = randomInteger(0, 9)
+    }
+}
+for (let i = 0; i < 3; i++) {
+    newWord = String(matr[i])
+    allStr += newWord
+    allStr += "\n"
+}
+
+console.log("Изначальная матрица:\n", allStr)
+
+
+function scalarMultiplication(num, matr) {
+    let allStr = ""
+    let newWord = ""
+    let matr1 = [
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]
+    ]
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            matr1[i][j] = num * matr[i][j]
+        }
+    }
+    for (let i = 0; i < 3; i++) {
+        newWord = String(matr1[i])
+        allStr += newWord
+        allStr += "\n"
+    }
+    console.log("Перемноженная матрица:\n" + allStr)
+}
+
+let newMatrix = scalarMultiplication(5, matr)
